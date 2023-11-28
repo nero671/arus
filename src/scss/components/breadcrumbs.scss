@@ -1,0 +1,28 @@
+.breadcrumbs {
+  padding: 12px 0;
+  border-top: 1px solid #E1E4EB;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    a {
+      color: #5A5B67;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: -0.36px;
+      color: #007AE0;
+
+      &:not(:last-child):after {
+        content: '→';
+        padding: 0;
+      }
+
+      &:last-child {
+        color: #A0A4AD;
+      }
+    }
+  }
+}

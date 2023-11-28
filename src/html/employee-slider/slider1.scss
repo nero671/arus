@@ -1,0 +1,140 @@
+.employee-slider {
+  &.swiper {
+    margin-top: 56px;
+    position: relative;
+    border-radius: 16px;
+
+    @include media(600) {
+      margin-top: 20px;
+    }
+
+    .employee-slider__slide {
+      position: relative;
+
+      .employee-slider__slide-wrapper {
+        width: 100%;
+        height: 100%;
+        max-height: 365px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 16px;
+
+          @include media(1024) {
+            width: initial;
+          }
+        }
+      }
+
+      .employee-slider__slide-content {
+        position: absolute;
+        top: 43%;
+        left: 120px;
+        width: 100%;
+
+        .employee-slider__slide-title {
+          color: $blackColor;
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 48px;
+          max-width: 392px;
+
+          @include media(1024) {
+            font-size: 24px;
+          }
+
+          @include media(600) {
+            font-size: 18px;
+            padding: 10px 0;
+          }
+        }
+
+        .employee-slider__slide-text {
+          color: $blackColor;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 24px; /* 120% */
+          max-width: 222px;
+          margin-top: 16px;
+
+          @include media(1024) {
+            font-size: 16px;
+          }
+
+          @include media(600) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .swiper-pagination {
+      display: flex;
+      width: 100%;
+      z-index: 9;
+      position: absolute;
+      justify-content: center;
+      gap: 16px;
+      bottom: 16px;
+
+      &-bullet {
+        display: flex;
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #111727;
+        cursor: pointer;
+        transition: 0.35s;
+      }
+
+      &-bullet-active {
+        width: 56px;
+        transition: 0.35s;
+      }
+    }
+  }
+
+  .employee-slider-arrows {
+    position: absolute;
+    top: 43%;
+    width: 100%;
+    justify-content: space-between;
+
+    @include media(374) {
+      top: 70%;
+    }
+
+    .employee-slider__btn-prev {
+      margin-left: 16px;
+      padding: 8px;
+      border-radius: 16px;
+      background: #111727;
+
+      @include media(600) {
+        margin-left: 8px;
+
+        svg {
+          width: 30px;
+        }
+      }
+    }
+
+    .employee-slider__btn-next {
+      margin-right: 16px;
+      border-radius: 16px;
+      background: #111727;
+      padding: 8px;
+
+      @include media(600) {
+        margin-right: 8px;
+
+        svg {
+          width: 30px;
+        }
+      }
+    }
+  }
+}
