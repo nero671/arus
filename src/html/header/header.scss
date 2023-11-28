@@ -378,7 +378,7 @@
     color: $blackColor;
     font-size: 16px;
     font-weight: 500;
-    white-space: wrap;
+    white-space: normal;
 
     &:hover {
       color: #E3132C;
@@ -437,6 +437,7 @@
 }
 
 .header-user.active {
+  pointer-events: none;
   svg {
     path {
       stroke: #808185;

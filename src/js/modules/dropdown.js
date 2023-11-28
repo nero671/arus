@@ -1,6 +1,6 @@
 export const dropdown = () => {
     const goodCatalogFilters = document.querySelector('.menu-header__wrapper');
-    const headerUser = document.querySelector('.header-user');
+    const headerUser = document.querySelector('.header-user.js-dropdown');
 
     // document.body.addEventListener('click', (e) => {
     //     console.log(e.target)

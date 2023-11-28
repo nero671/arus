@@ -4690,7 +4690,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
   color: #111827;
   font-size: 16px;
   font-weight: 500;
-  white-space: wrap;
+  white-space: normal;
 }
 
 .menu-dropdown__content .menu-dropdown__title:hover {
@@ -4756,6 +4756,10 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
   transition: 0.35s;
   z-index: 9;
   opacity: 1;
+}
+
+.header-user.active {
+  pointer-events: none;
 }
 
 .header-user.active svg path {
