@@ -1,11 +1,10 @@
-.button {
+.btn {
+  padding: 14px 24px;
+  background: transparent;
+  border: 1px solid #D0112B;
   border-radius: 8px;
-  background: #FFF;
-  color: #373843;
+  color: #D0112B;
   font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.64px;
-  padding: 22px 48px;
-  display: block;
-  width: fit-content;
+  font-weight: 600;
+  line-height: 20px;
 }

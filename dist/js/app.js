@@ -1,42 +1,14 @@
-/**
- * !(i)
- * Код попадает в итоговый файл, только когда вызвана функция, например FLSFunctions.spollers();
- * Или когда импортирован весь файл, например import "files/script.js";
- * Неиспользуемый (не вызванный) код в итоговый файл не попадает.
-
- * Если мы хотим добавить модуль следует его раскомментировать
- */
-import {
-    isWebp,
-    headerFixed,
-    togglePopupWindows,
-    addTouchClass,
-    addLoadedClass,
-    setEqualCardHeight
-} from './modules';
-
-import {collectionImgWrapper, collectionNav, collectionNavItem} from "./helpers/elementsNodeList.js";
-import Swiper, { Navigation, Pagination } from 'swiper';
-import BurgerMenu from './modules/BurgerMenu';
-import search from './modules/search';
-import { catalogMenu } from './modules/catalogMenu';
-import { formValidation } from './modules/validationForm';
-import { dropdown } from "./modules/dropdown.js";
-import { favorite } from "./modules/fav.js";
-import { tabs } from "./modules/tabs.js";
-import { pagination } from "./modules/pagination.js";
-import rangeSlider from "./modules/rangeSlider.js";
-import { customSelect } from "./modules/customSelect.js";
-import { togglePassword } from "./modules/togglePass.js";
-
+// import Swiper, { Navigation, Pagination } from 'swiper';
+// import BurgerMenu from './modules/BurgerMenu';
+// import { dropdown } from "./modules/dropdown.js";
+// import { togglePopupWindows } from "./modules/togglePopup.js";
 
 // import { MousePRLX } from './libs/parallaxMouse'
 
 // import AOS from 'aos'
 
-
-Swiper.use([Navigation]);
-Swiper.use([Pagination]);
+// Swiper.use([Navigation]);
+// Swiper.use([Pagination]);
 
 var employeeSwiper = new Swiper('.employee-slider', {
     speed: 600,
@@ -54,47 +26,99 @@ var employeeSwiper = new Swiper('.employee-slider', {
     },
 });
 
-/* Проверка поддержки webp, добавление класса webp или no-webp для HTML
- ! (i) необходимо для корректного отображения webp из css
- */
-// isWebp();
-
-/* Добавление класса touch для HTML если браузер мобильный */
-// addTouchClass();
-
-/* Добавление loaded для HTML после полной загрузки страницы */
-// addLoadedClass();
-
-/* Модуль для работы с меню (Бургер) */
-new BurgerMenu().init();
-
-/**
- *  Библиотека для анимаций
- *  документация: https://michalsnik.github.io/aos
- */
-// AOS.init();
-
-/** Параллакс мышей */
-// const mousePrlx = new MousePRLX({});
 
 /** Фиксированный header */
 // headerFixed();
 
-/**
- *  Открытие/закрытие модальных окон
- * Чтобы модальное окно открывалось и закрывалось
- * На окно повешай атрибут data-popup="<название окна>"
- * И на кнопку, которая вызывает окно так же повешай атрибут data-type="<название окна>"
+const togglePopupWindows = () => {
+    document.addEventListener('click', ({ target }) => {
+        if (target.closest('[data-type]')) {
+            const popup = document.querySelector(
+                `[data-popup="${target.dataset.type}"]`
+            );
 
- * На обертку(враппер) окна добавь класс _overlay-bg
- * На кнопку для закрытия окна добавь класс button-close
- */
+
+            // if (document.querySelector('._is-open')) {
+            //   document.querySelectorAll('._is-open').forEach((modal) => {
+            //     modal.classList.toggle('_is-open');
+            //   });
+            // }
+
+            popup.classList.toggle('_is-open');
+
+            // toggleBodyLock(true);
+        }
+
+        if (
+            target.classList.contains('_is-open') ||
+            target.closest('.button-close')
+        ) {
+            const popup = target.closest('._is-open');
+
+            popup.classList.remove('_is-open');
+            // toggleBodyLock(false);
+        }
+    });
+};
+
+const dropdown = () => {
+    const goodCatalogFilters = document.querySelector('.menu-header__wrapper');
+    const headerUser = document.querySelector('.header-user.js-dropdown');
+
+    // document.body.addEventListener('click', (e) => {
+    //     console.log(e.target)
+    //     if(e.target.closest('.js-dropdown')) {
+    //         e.target.classList.toggle('active');
+    //     }
+    // });
+
+    headerUser.addEventListener('click', (e) => {
+        headerUser.classList.toggle('active');
+    });
+
+    goodCatalogFilters.addEventListener('click', (e) => {
+        if (e.target.matches('.menu-dropdown')) {
+            const dropdowns = goodCatalogFilters.querySelectorAll('.menu-dropdown');
+            const targetDropdown = e.target;
+
+            const isActive = targetDropdown.classList.contains('active');
+
+            dropdowns.forEach((dropdown) => {
+                dropdown.classList.remove('active');
+            });
+
+            if (!isActive) {
+                targetDropdown.classList.add('active');
+            }
+        }
+    });
+}
+
+const showMoreHandler = () => {
+    const wrapper = document.querySelectorAll('.employee-content__article_text-wrapper');
+
+    wrapper.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            const show = item.querySelector('.employee-content__article_show-text');
+            const isExpanded = () => item.classList.contains('active');
+
+            if (e.target === show) {
+                show.textContent = isExpanded() ? 'Развернуть' : 'Свернуть';
+                item.classList.toggle('active');
+            }
+        })
+    })
+}
+
+
+
+
+
+
+
+
 togglePopupWindows();
 dropdown();
-
-
-
-
-tabs(collectionNav, collectionNavItem, collectionImgWrapper);
+showMoreHandler();
 
 
