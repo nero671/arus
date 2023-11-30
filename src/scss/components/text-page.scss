@@ -1,4 +1,45 @@
 .text-page {
+  display: flex;
+  padding: 0 32px;
+  gap: 104px;
+
+  .side-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 56px;
+    position: fixed;
+
+    @media(max-width: 1780px) {
+      width: 200px;
+    }
+
+    @media(max-width: 1550px) {
+      width: 280px;
+      position: static;
+    }
+
+    &__title {
+      color: #222429;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    a {
+      color: #808185;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 16px;
+
+      &.active {
+        color: #D0112B;
+      }
+
+      &:hover {
+        color: #D0112B;
+      }
+    }
+  }
   &__wrapper {
     margin-top: 16px;
     display: flex;
@@ -77,6 +118,12 @@
     align-items: center;
     justify-content: space-between;
     gap: 32px;
+
+    img {
+      width: 176px;
+      height: 176px;
+      border-radius: 50%;
+    }
 
     &__item {
       display: flex;

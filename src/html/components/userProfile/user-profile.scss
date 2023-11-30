@@ -1,7 +1,7 @@
 .user-profile {
 
   &__wrapper {
-    transform: translateX(0);
+    transform: translateX(100%);
     left: initial;
     right: 0;
     overflow: initial;
@@ -16,13 +16,24 @@
     padding: 24px 40px;
     transition: 0.55s;
     pointer-events: all;
-    overflow: auto;
+    overflow: initial;
 
 
     .cross {
       position: absolute;
       left: -48px;
       cursor: pointer;
+    }
+  }
+
+  &__content-wrapper {
+    overflow: auto;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+
+    &::-webkit-scrollbar {
+      width: 0px;
     }
   }
 

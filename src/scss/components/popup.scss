@@ -22,6 +22,10 @@
   &._is-open {
     opacity: 1;
     z-index: 99999;
+
+    .user-profile__wrapper {
+      transform: translateX(0);
+    }
   }
 
   &.active {

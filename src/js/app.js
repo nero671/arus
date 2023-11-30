@@ -15,6 +15,9 @@ var employeeSwiper = new Swiper('.employee-slider', {
     slidesPerView: 1,
     spaceBetween: 120,
     centeredSlides: true,
+    autoplay: {
+        delay: 10000,
+    },
     navigation: {
         nextEl: '.employee-slider__btn-next',
         prevEl: '.employee-slider__btn-prev'

@@ -2,6 +2,8 @@
 .header {
   width: 100%;
   background: #fff;
+  position: fixed;
+  z-index: 2;
 
 
   &.sticky {
@@ -97,6 +99,10 @@
         display: flex;
         align-items: center;
         gap: 12px;
+
+        svg, span {
+          pointer-events: none;
+        }
 
         span {
           color: #111827;
@@ -301,6 +307,7 @@
   opacity: 0;
   z-index: -1;
   transition: 0.35s;
+  display: none;
 
 
   .menu-catalog__text-wrapper,
@@ -354,6 +361,7 @@
   opacity: 0;
   z-index: -1;
   transition: 0.35s;
+  display: none;
 
   .menu-dropdown__grid {
     display: flex;
@@ -390,6 +398,11 @@
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
+
+    b {
+      font-weight: 600;
+      color: #55575C;
+    }
 
     &:hover {
       color: #E3132C;
@@ -432,6 +445,7 @@
       transition: 0.35s;
       z-index: 9;
       opacity: 1;
+      display: flex;
     }
   }
 }
